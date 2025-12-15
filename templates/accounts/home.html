@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            HomePage
+            </title>
+
+        </head>
+        <body>
+           
+           <h1> WELCOME,{{request.user.username}}</h1>
+           <p>You are logged in suceesfully</p>
+           <p><a href="{% url 'logout' %}">Log Out</a></p>
+            </body>
+    </html>

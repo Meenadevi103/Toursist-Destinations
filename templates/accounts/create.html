@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Destination</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: beige;
+            }
+            .container{
+                width:550px;
+                margin:40px auto;
+                background-color: aliceblue;
+                padding:20px;
+                border-radius: 6px;
+                box-shadow: 0 0 10px #aaa;
+                
+            }
+            h2{
+                text-align: center;
+                color: black;
+            }
+            label{
+                font-weight: bold;
+            }
+            input,textarea{
+                width: 90%;
+                padding: 8px;
+                margin-top: 6px;
+                margin-bottom: 12px;
+            }
+            button {
+                width: 100%;
+                padding: 10px;
+                background-color: #27ae60;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+            button:hover{
+                background-color:#219150 ;
+            }   
+            </style>
+        </head>
+
+        <body>
+            <div class="container">
+            <h2>Add Tousrist Destinations</h2>
+            <form method ="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label>Place name</label>
+                <input type="text" name="place_name" required>
+                <label>Weather</label>
+                <input type="text" name="weather" required>
+                <label>State</label>
+                <input type="text" name="state" required>
+                <label>District</label>
+                <input type="text" name="district" required>
+                 <label>Google Map Link</label>
+                <input type="url" name="map" >
+                 <label>Description</label>
+                <textarea name="description" rows="4"></textarea>
+                 <label>Image</label>
+                <input type="file" name="image" >
+                <button type="submit">Add</button>
+                </form>
+            </div>
+            </body>
+</html>

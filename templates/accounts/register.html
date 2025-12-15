@@ -1,0 +1,194 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration</title>
+        <style>
+            body{
+                display:flex;
+                background-color: antiquewhite;
+                justify-content: center;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .register{
+                background-color: aliceblue;
+                align-items: center;
+                justify-content: center;
+                border-radius: 4px;
+                padding:10px;
+                margin: 160px;
+                box-shadow: 0 0 15px #999;
+                
+            }
+            .register h1{
+                text-align: center;
+            }
+            input{
+                width:100px;
+                padding:10px ;
+                display: block;
+                margin: auto;
+                margin-top: 8px;
+                border-radius: 4px;
+                border: 1px solid #999;
+                box-sizing: border-box;
+            }
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background: #0077ff;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #005ecc;
+        }
+        label{
+            font-style: italic;
+            margin: 50px;
+            padding:40px;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+            </style>
+    </head>
+     <body>
+        <div class="register">
+            <h1>Create Account</h1>
+            {% if error %}
+            <p class="error">{{error}}</p>
+            {%endif%}
+            <form method="post">
+                {% csrf_token %}
+                <label>username</label>
+                <input type="text" name="username" placeholder="username" required>
+           <label>email</label><input type="email" name="email" placeholder="Email" required>
+
+             <label>password</label><input type="password" name="password" placeholder="Password" required>
+
+           <label>confirm password</label> <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an Account?<a href="{% url 'login' %}">LOGIN</a>
+        </p>
+            </div>
+            </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+
+    <style>
+        body {
+            background-color: rgb(237, 237, 237);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        .register-box {
+            background: #ffffff;
+            width: 350px;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .register-box h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #444;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #aaa;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background: #0077ff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005ecc;
+        }
+
+        .login-text {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .login-text a {
+            color: #0077ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="register-box">
+        <h1>Create Account</h1>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Enter Username" required>
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter Email" required>
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter Password" required>
+
+            <label>Confirm Password</label>
+            <input type="password" name="confirm_password" placeholder="Re-enter Password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p class="login-text">
+            Already have an account? <a href="{% url 'login' %}">Login</a>
+        </p>
+    </div>
+
+</body>
+</html>

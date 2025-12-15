@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<HTML>
+    <HEAD>
+        <title>Login-Django</title>
+        <style>
+            body{
+                background:rgb(242, 240, 239) ;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .container{
+                background: linear-gradient(to right,rgb(151, 151, 152),rgb(94, 95, 94));
+
+                width: 400px;
+                height: 400px;
+                border-radius: 20px;
+                box-shadow:0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+            label{
+                margin:10px;
+                color: #f5f1f1;
+            }
+            input{
+                width:90%;
+                border-radius: 20px;
+                border:none;
+                padding:7px;
+                margin: 5px;
+            }
+            h2{
+                color: #f5f1f1;
+                text-align: center;
+            }
+            .des{
+                margin: 10px;
+                color: #f1ecec;
+                font-size: small;
+            }
+            .login-box h1{
+                
+                text-align: center;
+
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .Sign-up{
+                margin: 60px;
+                color: #f5f1f1;
+            }
+            .btn{
+                width: 80%;
+                padding: 10px;
+                text-align: center;
+                display: block;
+                margin: 20px auto ;
+                cursor: pointer;
+                border:none;
+                background-color: rgb(237, 241, 241)
+                      /* border-radius: 20px; */
+            }
+            .btn:hover{
+                background-color: rgb(114, 189, 246);
+            }
+            form p{
+                font-size: larger;
+            }
+            </style>
+        </HEAD>
+    <body>
+        <div class="container">
+<form method="post">
+    {% csrf_token %}
+
+    {% if error %}
+        <p style="color:rgb(253, 47, 6);">{{ error }}</p>
+    {% endif %}
+    <h2>Welcome Back</h2>
+    <p class="des">Please enter your details here</p>
+    <p>
+        <label>Username</label>
+        <input type="text" name="username" required>
+    </p>
+
+    <p>
+        <label>Password</label>
+        <input type="password" name="password" required>
+    </p>
+
+    <button class="btn" type="submit">LOGIN</button>
+    <p class="Sign-up">Don't Have an Account?<a href="{% url 'register' %}">Sign up</a></p>
+
+</form>
+
+            </div>
+        </body>
+</HTML>
